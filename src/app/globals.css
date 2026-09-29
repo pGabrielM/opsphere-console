@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-brand-50: var(--color-sky-50);
+  --color-brand-100: var(--color-sky-100);
+  --color-brand-200: var(--color-sky-200);
+  --color-brand-300: var(--color-sky-300);
+  --color-brand-400: var(--color-sky-400);
+  --color-brand-500: var(--color-sky-500);
+  --color-brand-600: var(--color-sky-600);
+  --color-brand-700: var(--color-sky-700);
+  --color-brand-800: var(--color-sky-800);
+  --color-brand-900: var(--color-sky-900);
+  --color-brand-950: var(--color-sky-950);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-zinc-50 text-zinc-900 antialiased;
+}
+
+::selection {
+  @apply bg-brand-200 text-brand-950;
+}
+
+@layer components {
+  .field-label {
+    @apply mb-1.5 block text-sm font-medium text-zinc-700;
+  }
+  .field-error {
+    @apply mt-1 text-xs text-red-600;
+  }
+}
+
+/* Minimal typography for rendered runbooks/post-mortems (no @tailwindcss/typography dependency). */
+.prose-ops {
+  @apply text-sm leading-relaxed text-zinc-700;
+}
+.prose-ops > * + * {
+  @apply mt-3;
+}
+.prose-ops h1 {
+  @apply mt-6 text-xl font-semibold text-zinc-900;
+}
+.prose-ops h2 {
+  @apply mt-6 border-b border-zinc-100 pb-1 text-base font-semibold text-zinc-900;
+}
+.prose-ops h3 {
+  @apply mt-5 text-sm font-semibold text-zinc-900;
+}
+.prose-ops ul {
+  @apply list-disc space-y-1 pl-5;
+}
+.prose-ops ol {
+  @apply list-decimal space-y-1 pl-5;
+}
+.prose-ops a {
+  @apply font-medium text-brand-700 underline underline-offset-2;
+}
+.prose-ops code {
+  @apply rounded bg-zinc-100 px-1.5 py-0.5 font-mono text-[12.5px] text-zinc-800;
+}
+.prose-ops pre {
+  @apply overflow-x-auto rounded-lg bg-zinc-950 p-4 text-[12.5px] text-zinc-100;
+}
+.prose-ops pre code {
+  @apply bg-transparent p-0 text-zinc-100;
+}
+.prose-ops blockquote {
+  @apply border-l-4 border-amber-300 bg-amber-50 px-4 py-2 text-amber-900;
+}
+.prose-ops table {
+  @apply w-full border-collapse text-left;
+}
+.prose-ops th,
+.prose-ops td {
+  @apply border border-zinc-200 px-3 py-1.5;
+}
+.prose-ops th {
+  @apply bg-zinc-50 font-medium;
+}
+.prose-ops input[type='checkbox'] {
+  @apply mr-1.5 accent-brand-600;
+}
+.prose-ops li:has(> input[type='checkbox']) {
+  @apply list-none -ml-5;
+}

@@ -1,0 +1,126 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String     @id @default(cuid())
+  name         String
+  email        String     @unique
+  passwordHash String     @map("password_hash")
+  createdAt    DateTime   @default(now()) @map("created_at")
+  teams        Team[]
+  services     Service[]
+  runbooks     Runbook[]
+  incidents    Incident[]
+
+  @@map("users")
+}
+
+model Team {
+  id        String    @id @default(cuid())
+  ownerId   String    @map("owner_id")
+  name      String
+  color     String    @default("sky")
+  createdAt DateTime  @default(now()) @map("created_at")
+  owner     User      @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  services  Service[]
+
+  @@index([ownerId])
+  @@map("teams")
+}
+
+enum Tier {
+  CRITICAL
+  HIGH
+  STANDARD
+}
+
+enum ServiceStatus {
+  OPERATIONAL
+  DEGRADED
+  OUTAGE
+  MAINTENANCE
+}
+
+model Service {
+  id          String        @id @default(cuid())
+  ownerId     String        @map("owner_id")
+  teamId      String?       @map("team_id")
+  name        String
+  description String?
+  tier        Tier          @default(STANDARD)
+  status      ServiceStatus @default(OPERATIONAL)
+  tags        String[]      @default([])
+  links       Json          @default("[]")
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+  owner       User          @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  team        Team?         @relation(fields: [teamId], references: [id], onDelete: SetNull)
+  runbooks    Runbook[]
+  incidents   Incident[]
+
+  @@index([ownerId, teamId])
+  @@map("services")
+}
+
+model Runbook {
+  id        String   @id @default(cuid())
+  ownerId   String   @map("owner_id")
+  serviceId String?  @map("service_id")
+  title     String
+  content   String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  owner     User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  service   Service? @relation(fields: [serviceId], references: [id], onDelete: SetNull)
+
+  @@index([ownerId])
+  @@map("runbooks")
+}
+
+enum Severity {
+  SEV1
+  SEV2
+  SEV3
+}
+
+enum IncidentStatus {
+  INVESTIGATING
+  IDENTIFIED
+  MONITORING
+  RESOLVED
+}
+
+model Incident {
+  id         String           @id @default(cuid())
+  ownerId    String           @map("owner_id")
+  title      String
+  severity   Severity
+  status     IncidentStatus   @default(INVESTIGATING)
+  startedAt  DateTime         @default(now()) @map("started_at")
+  resolvedAt DateTime?        @map("resolved_at")
+  postmortem String?
+  owner      User             @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  services   Service[]
+  updates    IncidentUpdate[]
+
+  @@index([ownerId, status])
+  @@map("incidents")
+}
+
+model IncidentUpdate {
+  id         String         @id @default(cuid())
+  incidentId String         @map("incident_id")
+  status     IncidentStatus
+  message    String
+  author     String
+  createdAt  DateTime       @default(now()) @map("created_at")
+  incident   Incident       @relation(fields: [incidentId], references: [id], onDelete: Cascade)
+
+  @@index([incidentId, createdAt])
+  @@map("incident_updates")
+}
