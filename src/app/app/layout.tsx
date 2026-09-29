@@ -14,26 +14,27 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex min-h-screen">
-      <aside className="sticky top-0 hidden h-screen w-60 shrink-0 flex-col border-r border-zinc-200 bg-white px-3 py-4 lg:flex">
-        <Link href="/app" className="mb-6 px-2">
-          <Logo />
+      <aside className="sticky top-0 hidden h-screen w-56 shrink-0 flex-col bg-zinc-950 px-3 py-4 lg:flex">
+        <Link href="/app" className="mb-7 px-2">
+          <Logo dark />
         </Link>
         <SidebarNav />
-        <div className="mt-auto rounded-xl border border-zinc-200 bg-zinc-50 p-3 text-xs text-zinc-500">
-          Projeto open source por{' '}
-          <a href={siteConfig.author.url} className="font-medium text-zinc-700 hover:underline">
-            {siteConfig.author.name}
+        <div className="mt-auto border-t border-white/10 px-2 pt-3 font-mono text-[10px] leading-relaxed tracking-wide text-zinc-500 uppercase">
+          <p className="flex items-center gap-1.5 text-emerald-400">
+            <span className="size-1.5 rounded-full bg-emerald-400" /> workspace ativo
+          </p>
+          <a href={siteConfig.author.url} className="mt-1 block hover:text-zinc-300">
+            open source · {siteConfig.author.name}
           </a>
-          .
         </div>
       </aside>
       <div className="flex min-w-0 flex-1 flex-col">
         {isDemo && (
-          <div className="bg-zinc-900 px-4 py-1.5 text-center text-xs text-zinc-300">
+          <div className="bg-brand-600 px-4 py-1 text-center font-mono text-[11px] tracking-wide text-white uppercase">
             Você está na conta demo — fique à vontade para criar, editar e apagar dados.
           </div>
         )}
-        <header className="sticky top-0 z-30 flex h-14 items-center gap-3 border-b border-zinc-200 bg-white/85 px-4 backdrop-blur sm:px-6">
+        <header className="sticky top-0 z-30 flex h-12 items-center gap-3 border-b border-zinc-200 bg-white/95 px-4 backdrop-blur sm:px-6">
           <MobileNav />
           <div className="lg:hidden">
             <Logo compact />

@@ -59,7 +59,7 @@ export default async function ServicesPage({ searchParams }: { searchParams: Pro
                   <Link
                     key={service.id}
                     href={`/app/services/${service.id}`}
-                    className="group rounded-xl border border-zinc-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                    className="group rounded-lg border border-zinc-200 bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-md"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <p className="font-medium text-zinc-900 group-hover:text-brand-700">{service.name}</p>

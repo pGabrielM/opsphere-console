@@ -10,7 +10,7 @@ export function UserMenu({ name, email }: { name: string; email: string }) {
   return (
     <Dropdown.Root>
       <Dropdown.Trigger className="flex items-center gap-2 rounded-lg p-1 pr-2 text-left hover:bg-zinc-100 focus:outline-none">
-        <span className="flex size-8 items-center justify-center rounded-full bg-brand-600 text-xs font-semibold text-white">
+        <span className="flex size-7 items-center justify-center rounded-sm bg-brand-600 font-mono text-[11px] font-semibold text-white">
           {initials(name)}
         </span>
         <span className="hidden text-sm font-medium text-zinc-700 sm:block">{name}</span>

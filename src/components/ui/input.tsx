@@ -2,10 +2,10 @@ import type { ComponentProps } from 'react'
 import { cn } from '@/lib/utils'
 
 const fieldBase =
-  'w-full rounded-lg border border-zinc-200 bg-white px-3 text-sm text-zinc-900 shadow-sm transition-colors placeholder:text-zinc-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 disabled:cursor-not-allowed disabled:bg-zinc-50'
+  'w-full rounded-md border border-zinc-300 bg-white px-2.5 text-[13px] text-zinc-900 transition-colors placeholder:text-zinc-400 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 disabled:cursor-not-allowed disabled:bg-zinc-50'
 
 export function Input({ className, ...props }: ComponentProps<'input'>) {
-  return <input className={cn(fieldBase, 'h-9', className)} {...props} />
+  return <input className={cn(fieldBase, 'h-8', className)} {...props} />
 }
 
 export function Textarea({ className, ...props }: ComponentProps<'textarea'>) {
@@ -13,7 +13,7 @@ export function Textarea({ className, ...props }: ComponentProps<'textarea'>) {
 }
 
 export function Select({ className, ...props }: ComponentProps<'select'>) {
-  return <select className={cn(fieldBase, 'h-9 pr-8', className)} {...props} />
+  return <select className={cn(fieldBase, 'h-8 pr-8', className)} {...props} />
 }
 
 export function Label({ className, ...props }: ComponentProps<'label'>) {

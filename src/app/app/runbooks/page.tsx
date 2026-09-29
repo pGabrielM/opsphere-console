@@ -29,7 +29,7 @@ export default async function RunbooksPage() {
       {runbooks.length === 0 ? (
         <EmptyState icon={BookOpen} title="Nenhum runbook" description="Documente como diagnosticar e resolver problemas recorrentes." action={newButton} />
       ) : (
-        <ul className="divide-y divide-zinc-100 overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm">
+        <ul className="divide-y divide-zinc-100 overflow-hidden rounded-lg border border-zinc-200 bg-white">
           {runbooks.map((runbook) => (
             <li key={runbook.id}>
               <Link href={`/app/runbooks/${runbook.id}`} className="flex items-center gap-4 px-5 py-4 hover:bg-zinc-50">

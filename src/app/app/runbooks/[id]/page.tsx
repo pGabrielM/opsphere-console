@@ -45,7 +45,7 @@ export default async function RunbookPage({ params }: { params: Promise<{ id: st
           <ConfirmButton compact title="Excluir runbook?" description="O procedimento será apagado." action={deleteRunbook.bind(null, runbook.id)} />
         </div>
       </div>
-      <article className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
+      <article className="rounded-lg border border-zinc-200 bg-white p-6 sm:p-8">
         <Markdown>{runbook.content}</Markdown>
       </article>
     </div>

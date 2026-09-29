@@ -28,7 +28,7 @@ export default async function IncidentsPage() {
             { label: 'Resolvidos', value: String(resolved.length) },
             { label: 'Tempo médio de resolução', value: mttr === null ? '—' : duration(0, mttr) },
           ].map((stat) => (
-            <div key={stat.label} className="rounded-xl border border-zinc-200 bg-white p-4 shadow-sm">
+            <div key={stat.label} className="rounded-lg border border-zinc-200 bg-white p-4">
               <p className="text-2xl font-semibold tabular-nums">{stat.value}</p>
               <p className="text-xs text-zinc-500">{stat.label}</p>
             </div>
@@ -38,7 +38,7 @@ export default async function IncidentsPage() {
       {incidents.length === 0 ? (
         <EmptyState icon={ShieldCheck} title="Nenhum incidente" description="Quando algo der errado, declare o incidente para coordenar a resposta." />
       ) : (
-        <ul className="divide-y divide-zinc-100 overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm">
+        <ul className="divide-y divide-zinc-100 overflow-hidden rounded-lg border border-zinc-200 bg-white">
           {incidents.map((incident) => (
             <li key={incident.id}>
               <Link href={`/app/incidents/${incident.id}`} className="flex flex-col gap-2 px-5 py-4 hover:bg-zinc-50 sm:flex-row sm:items-center sm:gap-4">

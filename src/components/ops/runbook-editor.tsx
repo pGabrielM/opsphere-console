@@ -40,7 +40,7 @@ export function RunbookEditor({ services, runbook, defaultServiceId }: Props) {
           </Select>
         </div>
       </div>
-      <div className="overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-lg border border-zinc-200 bg-white">
         <div className="flex border-b border-zinc-100 bg-zinc-50 px-2">
           {(['write', 'preview'] as const).map((key) => (
             <button

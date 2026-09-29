@@ -6,33 +6,34 @@ import { siteConfig } from '@/config/site'
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-zinc-200/70 bg-white/80 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-4 sm:px-6">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-zinc-950/90 backdrop-blur">
+      <div className="mx-auto flex h-14 max-w-6xl items-center gap-6 px-4 sm:px-6">
         <Link href="/">
-          <Logo />
+          <Logo dark />
         </Link>
-        <nav className="hidden items-center gap-6 text-sm text-zinc-600 md:flex">
-          <a href="#recursos" className="hover:text-zinc-900">
+        <nav className="hidden items-center gap-6 font-mono text-xs tracking-wider text-zinc-400 uppercase md:flex">
+          <a href="#recursos" className="hover:text-white">
             Recursos
           </a>
-          <a href="#como-funciona" className="hover:text-zinc-900">
-            Como funciona
+          <a href="#como-funciona" className="hover:text-white">
+            Fluxo
           </a>
-          <a href="#stack" className="hover:text-zinc-900">
-            Tecnologia
+          <a href="#stack" className="hover:text-white">
+            Stack
           </a>
         </nav>
         <div className="ml-auto flex items-center gap-2">
-          <Button asChild variant="ghost" size="icon" className="hidden sm:inline-flex">
-            <a href={siteConfig.repositoryUrl} target="_blank" rel="noreferrer" aria-label="GitHub">
-              <Github className="size-5" />
-            </a>
-          </Button>
-          <Button asChild variant="secondary" className="hidden sm:inline-flex">
-            <Link href="/login">Entrar</Link>
-          </Button>
-          <Button asChild>
-            <Link href="/login">Testar demo</Link>
+          <a
+            href={siteConfig.repositoryUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+            className="hidden p-2 text-zinc-400 hover:text-white sm:block"
+          >
+            <Github className="size-5" />
+          </a>
+          <Button asChild size="sm">
+            <Link href="/login">Abrir demo</Link>
           </Button>
         </div>
       </div>

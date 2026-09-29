@@ -24,7 +24,7 @@ export default async function TeamsPage() {
       ) : (
         <div className="grid gap-4 md:grid-cols-2">
           {teams.map((team) => (
-            <div key={team.id} className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+            <div key={team.id} className="rounded-lg border border-zinc-200 bg-white p-5">
               <div className="flex items-center gap-3">
                 <span className={cn('size-3 rounded-full', teamDot(team.color))} />
                 <h2 className="flex-1 font-semibold">{team.name}</h2>

@@ -13,7 +13,7 @@ export function IncidentUpdateForm({ incidentId, status }: { incidentId: string;
   return (
     <form
       ref={formRef}
-      className="space-y-3 rounded-xl border border-zinc-200 bg-white p-4 shadow-sm"
+      className="space-y-3 rounded-lg border border-zinc-200 bg-white p-4"
       action={(formData) =>
         run(() => postIncidentUpdate(incidentId, formData), { success: 'Atualização publicada.', onSuccess: () => formRef.current?.reset() })
       }

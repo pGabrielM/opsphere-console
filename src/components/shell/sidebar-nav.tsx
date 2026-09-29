@@ -5,11 +5,13 @@ import { usePathname } from 'next/navigation'
 import { appNav } from '@/config/nav'
 import { cn } from '@/lib/utils'
 
+/** Navegação escura (barra lateral desktop e gaveta mobile). */
 export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname()
 
   return (
     <nav className="flex flex-col gap-0.5">
+      <p className="section-label mb-2 px-2 !text-zinc-500">Workspace</p>
       {appNav.map((item) => {
         const active = item.exact ? pathname === item.href : pathname.startsWith(item.href)
         const Icon = item.icon
@@ -19,13 +21,13 @@ export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
             href={item.href}
             onClick={onNavigate}
             className={cn(
-              'flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors',
+              'flex items-center gap-2.5 border-l-2 px-2.5 py-2 text-[13px] font-medium transition-colors',
               active
-                ? 'bg-brand-50 text-brand-700'
-                : 'text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900',
+                ? 'border-brand-400 bg-white/[0.07] text-white'
+                : 'border-transparent text-zinc-400 hover:bg-white/[0.04] hover:text-zinc-100',
             )}
           >
-            <Icon className="size-4" />
+            <Icon className={cn('size-4', active && 'text-brand-300')} />
             {item.label}
           </Link>
         )
