@@ -1,4 +1,4 @@
-# OpSphere
+# Op Sphere
 
 ![CI](https://github.com/pGabrielM/opsphere-console/actions/workflows/ci.yml/badge.svg)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square)
@@ -11,6 +11,8 @@ is, markdown runbooks attached to each service, incident management with a statu
 post-mortems — plus a global `Ctrl+K` search to find any of it in seconds.
 
 ![Overview](public/screenshots/overview.png)
+
+**Live demo:** [opsphere-console.vercel.app/demo](https://opsphere-console.vercel.app/demo) — signs in straight to a sample account.
 
 > **Try it:** open the app and click **"Explorar com a conta demo"** — an e-commerce operations
 > workspace with 4 teams, 12 services, 6 runbooks and an ongoing incident.
@@ -51,7 +53,7 @@ src/
 
 ## Running locally
 
-Requirements: Node.js 20+, Docker.
+Requirements: Node.js 22+, Docker.
 
 ```bash
 cp .env.example .env.local        # then set AUTH_SECRET (npx auth secret)
