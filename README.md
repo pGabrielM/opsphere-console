@@ -12,7 +12,7 @@ post-mortems — plus a global `Ctrl+K` search to find any of it in seconds.
 
 ![Overview](public/screenshots/overview.png)
 
-**Live demo:** [opsphere-console.vercel.app/demo](https://opsphere-console.vercel.app/demo) — signs in straight to a sample account.
+**Live demo:** [opsphere.letinfo.dev/demo](https://opsphere.letinfo.dev/demo) — signs in straight to a sample account.
 
 > **Try it:** open the app and click **"Explorar com a conta demo"** — an e-commerce operations
 > workspace with 4 teams, 12 services, 6 runbooks and an ongoing incident.
