@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'OpSphere',
+  name: 'Op Sphere',
   shortTagline: 'central de operações para times de TI',
   tagline: 'Tudo o que o plantão precisa às 3 da manhã, em um só lugar.',
   description:

@@ -6,7 +6,7 @@ const content: LandingContent = {
   title: 'Tudo o que o plantão precisa às 3 da manhã, em um só lugar',
   subtitle:
     'Catálogo de serviços com dono e criticidade, runbooks em Markdown ligados a cada sistema e incidentes com linha do tempo e post-mortem — com busca global para achar qualquer coisa em segundos.',
-  screenshot: { src: '/screenshots/overview.png', alt: 'Visão geral do OpSphere' },
+  screenshot: { src: '/screenshots/overview.png', alt: 'Visão geral do Op Sphere' },
   proof: ['Catálogo por equipe', 'Runbooks em Markdown', 'Busca global Ctrl+K'],
   features: [
     { icon: Server, title: 'Catálogo de serviços', description: 'Cada sistema com equipe dona, criticidade, status atual, tags e links de produção, dashboards e repositório.' },
